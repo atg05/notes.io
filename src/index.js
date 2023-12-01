@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./styles/index.css";
-import Notes from "./pages/Notes";
+import Layout from "./layout/Layout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Notes />
+    {/* <Notes /> */}
+    <Layout />
   </React.StrictMode>
 );
