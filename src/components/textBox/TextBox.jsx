@@ -36,21 +36,21 @@ const TextBox = (props) => {
     resizeTextArea();
   }, []);
 
-  useEffect(() => {
-    console.log(_textInputElement.current.value);
-    let countDown = setTimeout(() => {
-      if (_textInputElement.current?.value) {
-        // addToEditor(textBoxId, Text, _textInputElement.current.value);
-        addToEditor(Text, _textInputElement.current.value);
-      } else {
-        deleteFromEditor(textBoxId);
-      }
-    }, 1500);
+  // useEffect(() => {
+  //   console.log(_textInputElement.current.value);
+  //   let countDown = setTimeout(() => {
+  //     if (_textInputElement.current?.value) {
+  //       // addToEditor(textBoxId, Text, _textInputElement.current.value);
+  //       addToEditor(Text, _textInputElement.current.value);
+  //     } else {
+  //       deleteFromEditor(textBoxId);
+  //     }
+  //   }, 1500);
 
-    return () => {
-      clearTimeout(countDown);
-    };
-  }, [resetTimer]);
+  //   return () => {
+  //     clearTimeout(countDown);
+  //   };
+  // }, [resetTimer]);
 
   return (
     <textarea
