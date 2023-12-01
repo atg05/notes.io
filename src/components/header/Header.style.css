@@ -1,8 +1,27 @@
-.header_container {
+.header-container {
+  margin-top: 20px;
+  max-height: fit-content;
+
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   max-width: 75%;
   margin-inline: auto;
+}
 
-  margin-top: 20px;
+.header-container > .title {
+  font-size: 28px;
+  font-weight: 800;
+}
+.back_icon {
+  height: 2rem;
+  width: 3rem;
+}
+.icon_header {
+  font-weight: bold;
+  height: 1.5rem;
+  width: 1.5rem;
+  stroke: var(--white);
+  margin-right: 2px;
 }

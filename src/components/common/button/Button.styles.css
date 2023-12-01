@@ -8,15 +8,22 @@
 
   color: var(--white);
   background: var(--primary-color);
-  border-radius: 5px;
+  border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
+  outline: none;
+  border: none;
 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.4em;
   max-width: fit-content;
+  min-width: 93px;
 }
+
+.primary {
+}
+
 .btn:disabled {
   opacity: 0.8;
   cursor: not-allowed;
