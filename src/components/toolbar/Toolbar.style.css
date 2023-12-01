@@ -1,0 +1,64 @@
+.toolbar_container {
+  margin-top: auto;
+  margin-inline: auto;
+  display: flex;
+  gap: 2em;
+  background: transparent;
+  margin-bottom: 2em;
+
+  position: fixed; /* Important */
+
+  left: 50%; /* Position X halfway in */
+  bottom: 0em;
+  transform: translate(-50%, -50%); /* Move it halfway back(x,y) */
+}
+
+.icon {
+  background: #e9f1f6;
+  padding: 5px 15px;
+  height: 32px;
+  width: auto;
+  font-weight: bold;
+  stroke: var(--primary-color);
+  border-radius: 8px;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .toolbar_container {
+    margin-bottom: 0px;
+  }
+  .icon {
+    padding: 5px 10px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .toolbar_container {
+    margin-bottom: 0px;
+  }
+  .icon {
+    padding: 5px 10px;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  .toolbar_container {
+    margin-bottom: 0px;
+  }
+  .icon {
+    padding: 5px 10px;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  .toolbar_container {
+    margin-bottom: 0px;
+  }
+  .icon {
+    padding: 5px 10px;
+  }
+}

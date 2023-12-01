@@ -1,0 +1,18 @@
+.card-container {
+  background: var(--white);
+  max-width: 100%;
+
+  padding: 16px;
+  border-radius: var(--border-radius);
+
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.card-container > .time_stamp {
+  display: flex;
+  gap: 0.8em;
+  color: var(--grey);
+}

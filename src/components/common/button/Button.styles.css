@@ -1,0 +1,36 @@
+.btn {
+  display: inline-block;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  color: var(--white);
+  background: var(--primary-color);
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  outline: none;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+  max-width: fit-content;
+  min-width: 93px;
+}
+
+.btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  /* --font-size: 16px; */
+  .btn {
+    padding: 10px;
+    font-size: var(--font-size);
+  }
+}
