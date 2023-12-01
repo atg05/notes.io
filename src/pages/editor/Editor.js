@@ -36,7 +36,6 @@ const Editor = () => {
     setNotes(JSON.parse(noteNewContent));
     setEditorState(_parsedNewContent.editor);
   }
-  console.log(editor);
 
   const _handleTitleChange = (e) => {
     if (e.target.value !== "") {
@@ -54,8 +53,6 @@ const Editor = () => {
       resetEditorState();
     };
   }, [id]);
-
-  console.log(notes);
 
   return (
     <div className="editor_container">
