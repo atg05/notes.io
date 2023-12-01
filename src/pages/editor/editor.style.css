@@ -84,3 +84,9 @@ textarea::placeholder {
   /* background-color: red; */
   overflow-y: scroll;
 }
+
+/* Hide the scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+.action_container::-webkit-scrollbar {
+  width: 0; /* Set width to 0 to hide the scrollbar */
+  background: transparent; /* Set a transparent background */
+}
