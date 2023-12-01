@@ -1,13 +1,16 @@
 import "./Header.style.css";
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../common/button/Button";
 import { ReactComponent as PlusIcon } from "../../assets/Plus_Icon.svg";
 import { ReactComponent as BackIcon } from "../../assets/Back_Icon.svg";
 import { useLocation, useNavigate } from "react-router-dom";
+import { EditorContext } from "../../context/EditorContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { saveContent, canSave } = useContext(EditorContext);
 
   const handleNewButtonClick = () => {
     navigate("/editor");
@@ -25,16 +28,25 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      {location.pathname === "/editor" ? (
+      {location.pathname.includes("/editor") ? (
         <BackIcon className="back_icon" onClick={handleBackButton} />
       ) : (
         <p className="title">Notes</p>
       )}
-      {location.pathname === "/editor" ? (
-        // <Button disabled={!canSave} onClick={() => saveContent()}>
-        <Button>Save</Button>
+      {location.pathname.includes("/editor") ? (
+        <Button
+          className={"btn save-btn"}
+          disabled={!canSave}
+          onClick={async () =>
+            await saveContent().then(() => {
+              navigate("/");
+            })
+          }
+        >
+          Save
+        </Button>
       ) : (
-        <Button onClick={handleNewButtonClick}>
+        <Button className={"btn new-btn"} onClick={handleNewButtonClick}>
           <PlusIcon className="icon_header" />
           New
         </Button>

@@ -1,0 +1,46 @@
+.notes-collection {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 75%;
+  margin-inline: auto;
+  overflow: auto; /* Make the container scrollable */
+
+  height: calc(100vh - calc(57px + 54px + 2em));
+  padding-bottom: 1em;
+  background: transparent;
+}
+
+/* Hide the scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+.notes-collection::-webkit-scrollbar {
+  width: 0; /* Set width to 0 to hide the scrollbar */
+  background: transparent; /* Set a transparent background */
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .notes-collection {
+    max-width: 95vw;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .layout-container {
+    max-width: 90vw;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  .layout-container {
+    max-width: 75vw;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  .layout-container {
+    max-width: 75vw;
+  }
+}

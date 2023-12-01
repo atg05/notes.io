@@ -1,10 +1,15 @@
 import React, { useContext, useEffect } from "react";
+import Header from "../../components/header/Header";
+import { Outlet } from "react-router-dom";
 import { NotesContext } from "../../context/NotesContext";
-import Card from "../../components/card/Card";
-import "./Notes.style.css";
+import { Text } from "../../constants/editor";
+import { useLocation } from "react-router-dom";
+import "./layout.style.css";
 
-const Notes = () => {
+const Layout = () => {
+  const location = useLocation();
   const { allNotes, setNotes } = useContext(NotesContext);
+
   function fetchAllNotes() {
     // fetching all notes
     const localStorageKeys = Object.keys(localStorage) || [];
@@ -17,7 +22,6 @@ const Notes = () => {
         if (_parsedValue.editor[key].type === Text)
           return _parsedValue.editor[key].content;
       });
-
       _allNotes = {
         ..._allNotes,
         [key]: {
@@ -34,15 +38,15 @@ const Notes = () => {
   }, []);
 
   return (
-    <div className="notes-collection">
-      {allNotes &&
-        Object.keys(allNotes)?.map((key) => {
-          const { ...noteData } = allNotes[key];
-
-          return <Card key={noteData.id} card={noteData} />;
-        })}
+    <div
+      className={
+        location.pathname === "/" ? "layout bg-grey" : "layout bg-white"
+      }
+    >
+      <Header />
+      <Outlet />
     </div>
   );
 };
 
-export default Notes;
+export default Layout;

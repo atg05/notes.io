@@ -1,9 +1,13 @@
+import { useContext, useEffect, useRef, useState } from "react";
 import { EditorContext } from "../../context/EditorContext";
+import { generateUniqueId } from "../../helpers/generateUniqueId";
+import { Text } from "../../constants/editor";
 
 const TextBox = (props) => {
-  console.log(props);
-  const [textData, setTextData] = useState({ type: "text", data: "" });
+  const [textData, setTextData] = useState("");
   const [textBoxId, setTextBoxId] = useState(generateUniqueId());
+
+  const [isEdit, setIsEdit] = useState(false);
 
   const {
     editor,
@@ -14,21 +18,48 @@ const TextBox = (props) => {
   } = useContext(EditorContext);
 
   function resizeTextArea() {
-    const textarea = document.getElementById("TextArea");
-    textarea.style.height = "auto"; // Reset the height to auto to get the scroll height
-    textarea.style.height = `${textarea.scrollHeight}px`; // Set the height to the scroll height
+    const textarea = document.getElementById(textBoxId);
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
   }
-  const handleChange = (e: any) => {
-    addToEditor(textBoxId, "text", e.target.value);
+
+  const _textInputElement = useRef();
+  const [resetTimer, setResetTimer] = useState();
+  const [signal, setSignal] = useState(true);
+
+  const handleChange = (e) => {
+    setResetTimer((state) => !state);
     resizeTextArea();
   };
+
+  useEffect(() => {
+    resizeTextArea();
+  }, []);
+
+  useEffect(() => {
+    console.log(_textInputElement.current.value);
+    let countDown = setTimeout(() => {
+      if (_textInputElement.current?.value) {
+        // addToEditor(textBoxId, Text, _textInputElement.current.value);
+        addToEditor(Text, _textInputElement.current.value);
+      } else {
+        deleteFromEditor(textBoxId);
+      }
+    }, 1500);
+
+    return () => {
+      clearTimeout(countDown);
+    };
+  }, [resetTimer]);
 
   return (
     <textarea
       placeholder="Start typing..."
       defaultValue={props.defaultValue}
       onChange={handleChange}
-      id="TextArea"
+      ref={_textInputElement}
+      id={textBoxId}
+      style={{ margin: "0" }}
     />
   );
 };

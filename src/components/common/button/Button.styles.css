@@ -21,10 +21,16 @@
   min-width: 93px;
 }
 
-.primary {
-}
-
 .btn:disabled {
   opacity: 0.8;
   cursor: not-allowed;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  /* --font-size: 16px; */
+  .btn {
+    padding: 10px;
+    font-size: var(--font-size);
+  }
 }
